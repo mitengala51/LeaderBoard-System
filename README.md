@@ -72,7 +72,7 @@ leaderboard-system/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/leaderboard-system.git
+git clone https://github.com/mitengala51/LeaderBoard-System.git
 cd leaderboard-system
 ```
 
