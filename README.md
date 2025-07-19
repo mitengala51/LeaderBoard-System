@@ -154,7 +154,7 @@ For production deployment, update this to your deployed backend URL.
 2. Deploy the `dist` folder to your hosting platform
 3. Update `API_BASE_URL` in `api.js` to your backend URL
 
-### Backend (Render/Railway/Heroku)
+### Backend (Render)
 1. Set the following environment variables in your deployment platform:
    ```env
    PORT=5000
