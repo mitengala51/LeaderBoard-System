@@ -99,7 +99,7 @@ NODE_ENV=development
 MONGODB_URI=mongodb+srv://mitengala51:V0ASfTaleM5S0nVa@cluster0.ibbpfel.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 # Frontend Configuration
-FRONTEND_URL= https://leader-board-system-tau.vercel.app
+FRONTEND_URL= http://localhost:5173
 
 # Security
 JWT_SECRET=65HaCtA$3oQtTtwjj0j*wRQkBSX!s7OwhUb
