@@ -84,10 +84,38 @@ cd backend
 # Install dependencies
 npm install
 
-# Create .env file with your MongoDB connection string
-echo "MONGODB_URI=mongodb://localhost:27017/leaderboard" > .env
-echo "PORT=5000" >> .env
+# Create .env file in the backend directory
+touch .env
+```
 
+Add the following environment variables to your `.env` file:
+
+```env
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+
+# Database Configuration
+MONGODB_URI=mongodb+srv://mitengala51:V0ASfTaleM5S0nVa@cluster0.ibbpfel.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+# Frontend Configuration
+FRONTEND_URL= https://leader-board-system-tau.vercel.app
+
+# Security
+JWT_SECRET=65HaCtA$3oQtTtwjj0j*wRQkBSX!s7OwhUb
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+
+# Logging
+LOG_LEVEL=info
+
+# CORS
+CORS_ORIGIN=http://localhost:3000
+```
+
+```bash
 # Start the backend server
 npm start
 ```
@@ -121,22 +149,57 @@ For production deployment, update this to your deployed backend URL.
 
 ## 🌐 Deployment
 
-### Frontend (Vercel)
+### Frontend (Vercel/Netlify)
 1. Build the project: `npm run build`
 2. Deploy the `dist` folder to your hosting platform
 3. Update `API_BASE_URL` in `api.js` to your backend URL
 
 ### Backend (Render/Railway/Heroku)
-1. Set environment variables:
-   - `MONGODB_URI`: Your MongoDB connection string
-   - `PORT`: Server port (usually set automatically)
+1. Set the following environment variables in your deployment platform:
+   ```env
+   PORT=5000
+   NODE_ENV=production
+   MONGODB_URI=mongodb+srv://mitengala51:V0ASfTaleM5S0nVa@cluster0.ibbpfel.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+   FRONTEND_URL=https://your-frontend-domain.vercel.app
+   JWT_SECRET=65HaCtA$3oQtTtwjj0j*wRQkBSX!s7OwhUb
+   BCRYPT_ROUNDS=12
+   RATE_LIMIT_WINDOW_MS=900000
+   RATE_LIMIT_MAX_REQUESTS=100
+   LOG_LEVEL=info
+   CORS_ORIGIN=https://your-frontend-domain.vercel.app
+   ```
 2. Deploy the backend directory
 3. Update frontend API URL to match your backend deployment
 
 ### Database (MongoDB Atlas)
-1. Create a MongoDB Atlas cluster
-2. Add your connection string to the backend environment variables
-3. Whitelist your deployment IP addresses
+The project is configured to use MongoDB Atlas cloud database:
+- **Connection String**: Already configured in the environment variables
+- **Database Name**: `leaderboard` (auto-created)
+- **Collections**: `users`, `claims` (auto-created by Mongoose)
+
+For production deployment:
+1. Update `MONGODB_URI` in your deployment platform's environment variables
+2. Ensure your deployment IP addresses are whitelisted in MongoDB Atlas
+3. Update `CORS_ORIGIN` to match your frontend deployment URL
+
+## 🔒 Environment Variables
+
+The application uses the following environment variables for configuration:
+
+| Variable | Description | Default/Example |
+|----------|-------------|-----------------|
+| `PORT` | Server port | `5000` |
+| `NODE_ENV` | Environment mode | `development` |
+| `MONGODB_URI` | MongoDB connection string | Atlas cluster connection |
+| `FRONTEND_URL` | Frontend application URL | `http://localhost:5173` |
+| `JWT_SECRET` | JWT token secret key | Secure random string |
+| `BCRYPT_ROUNDS` | Password hashing rounds | `12` |
+| `RATE_LIMIT_WINDOW_MS` | Rate limiting window | `900000` (15 minutes) |
+| `RATE_LIMIT_MAX_REQUESTS` | Max requests per window | `100` |
+| `LOG_LEVEL` | Logging level | `info` |
+| `CORS_ORIGIN` | Allowed CORS origins | Frontend URL |
+
+⚠️ **Security Note**: Never commit `.env` files to version control. The values shown are for development purposes.
 
 ## 📊 API Endpoints
 
