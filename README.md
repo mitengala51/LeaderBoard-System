@@ -147,30 +147,6 @@ For production deployment, update this to your deployed backend URL.
 - Frontend: `http://localhost:5173`
 - Backend API: `http://localhost:5000/api`
 
-## 🌐 Deployment
-
-### Frontend (Vercel)
-1. Build the project: `npm run build`
-2. Deploy the `dist` folder to your hosting platform
-3. Update `API_BASE_URL` in `api.js` to your backend URL
-
-### Backend (Render)
-1. Set the following environment variables in your deployment platform:
-   ```env
-   PORT=5000
-   NODE_ENV=production
-   MONGODB_URI=mongodb+srv://mitengala51:V0ASfTaleM5S0nVa@cluster0.ibbpfel.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-   FRONTEND_URL= https://leader-board-system-tau.vercel.app
-   JWT_SECRET=65HaCtA$3oQtTtwjj0j*wRQkBSX!s7OwhUb
-   BCRYPT_ROUNDS=12
-   RATE_LIMIT_WINDOW_MS=900000
-   RATE_LIMIT_MAX_REQUESTS=100
-   LOG_LEVEL=info
-   CORS_ORIGIN= https://leader-board-system-tau.vercel.app
-   ```
-2. Deploy the backend directory
-3. Update frontend API URL to match your backend deployment
-
 ### Database (MongoDB Atlas)
 The project is configured to use MongoDB Atlas cloud database:
 - **Connection String**: Already configured in the environment variables
