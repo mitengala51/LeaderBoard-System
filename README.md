@@ -138,7 +138,7 @@ npm run dev
 
 In `frontend/src/api.js`, change:
 ```javascript
-const API_BASE_URL = 'http://localhost:5173/api';
+const API_BASE_URL = 'http://localhost:5000/api';
 ```
 
 For production deployment, update this to your deployed backend URL.
