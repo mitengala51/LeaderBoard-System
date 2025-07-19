@@ -149,7 +149,7 @@ For production deployment, update this to your deployed backend URL.
 
 ## 🌐 Deployment
 
-### Frontend (Vercel/Netlify)
+### Frontend (Vercel)
 1. Build the project: `npm run build`
 2. Deploy the `dist` folder to your hosting platform
 3. Update `API_BASE_URL` in `api.js` to your backend URL
@@ -160,13 +160,13 @@ For production deployment, update this to your deployed backend URL.
    PORT=5000
    NODE_ENV=production
    MONGODB_URI=mongodb+srv://mitengala51:V0ASfTaleM5S0nVa@cluster0.ibbpfel.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-   FRONTEND_URL=https://your-frontend-domain.vercel.app
+   FRONTEND_URL= https://leader-board-system-tau.vercel.app
    JWT_SECRET=65HaCtA$3oQtTtwjj0j*wRQkBSX!s7OwhUb
    BCRYPT_ROUNDS=12
    RATE_LIMIT_WINDOW_MS=900000
    RATE_LIMIT_MAX_REQUESTS=100
    LOG_LEVEL=info
-   CORS_ORIGIN=https://your-frontend-domain.vercel.app
+   CORS_ORIGIN= https://leader-board-system-tau.vercel.app
    ```
 2. Deploy the backend directory
 3. Update frontend API URL to match your backend deployment
